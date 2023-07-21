@@ -26,7 +26,7 @@ pipeline:
                   identifier: BuildAndPushDockerRegistry_1
                   spec:
                     connectorRef: AJDocker
-                    repo: explorecali-fe
+                    repo: ajhambdock/explorecali-fe
                     tags:
                       - latest
           platform:
