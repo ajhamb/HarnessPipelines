@@ -1,0 +1,37 @@
+pipeline:
+  name: CITest1
+  identifier: CITest1
+  projectIdentifier: AJTest
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: AJGithub
+        repoName: ExploreCali-FE
+        build: <+input>
+  stages:
+    - stage:
+        name: BuildFE
+        identifier: BuildFE
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: BuildAndPushDockerRegistry_1
+                  identifier: BuildAndPushDockerRegistry_1
+                  spec:
+                    connectorRef: AJDocker
+                    repo: explorecali-fe
+                    tags:
+                      - latest
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Docker
+            spec: {}
